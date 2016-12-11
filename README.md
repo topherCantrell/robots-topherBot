@@ -9,4 +9,8 @@ MotorShield v2.3
 
 ## Hardware
 
-![](https://github.com/topherCantrell/iRobotCreatePI/blob/master/art/iRobotDIN.jpg)
+Adafruit motor controller shield mounted to base. Line follower array mounted to front.
+![](https://github.com/topherCantrell/crackleBot/blob/master/art/bottom.jpg)
+
+Encoder reader mounted on top.
+![](https://github.com/topherCantrell/crackleBot/blob/master/art/cover.jpg)
