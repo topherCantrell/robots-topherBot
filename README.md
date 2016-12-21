@@ -13,3 +13,6 @@ Adafruit motor controller shield mounted to base. Line follower array mounted to
 
 Encoder reader mounted on top.
 ![](https://github.com/topherCantrell/topherBot/blob/master/art/cover.jpg)
+
+Before wiring.
+![](https://github.com/topherCantrell/topherBot/blob/master/art/bare.jpg)
