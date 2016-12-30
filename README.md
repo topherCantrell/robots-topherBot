@@ -16,3 +16,6 @@ Encoder reader mounted on top.
 
 Before wiring.
 ![](https://github.com/topherCantrell/topherBot/blob/master/art/bare.jpg)
+
+Schematic.
+![](https://github.com/topherCantrell/topherBot/blob/master/art/schematic.jpg)
