@@ -22,6 +22,9 @@ Line Follower
 
 https://github.com/sparkfun/Line_Follower_Array
 
+Parallax quick start
+
+https://www.parallax.com/downloads/p8x32a-quickstart-board-schematic
 
 ## Hardware
 

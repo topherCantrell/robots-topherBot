@@ -15,11 +15,19 @@ pri PauseMSec(Duration)
       
 PUB Main | fn, param, retVal
 
-  i2c.Initialize(PIN_SCL)
+  'i2c.Initialize(PIN_SCL)
   
-  PauseMSec(2_000)
+  'PauseMSec(2_000)
 
-  i2c.Start(PIN_SCL)
-  i2c.Write(PIN_SCL,0x60)
-  i2c.Write(PIN_SCL,rate)
-  i2c.Stop(PIN_SCL) 
+  'i2c.Start(PIN_SCL)
+  'i2c.Write(PIN_SCL,0x60)
+  'i2c.Write(PIN_SCL,rate)
+  'i2c.Stop(PIN_SCL)
+
+  dira[0] := 1
+
+  repeat
+    outa[0] := 1
+    waitcnt(1000)
+    outa[0] := 0
+    waitcnt(1000)
