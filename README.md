@@ -29,13 +29,13 @@ https://www.parallax.com/sites/default/files/downloads/40000-Propeller-QuickStar
 ## Hardware
 
 Adafruit motor controller shield mounted to base. Line follower array mounted to front.
-![](https://github.com/topherCantrell/topherBot/blob/master/art/bottom.jpg)
+![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/bottom.jpg)
 
 Encoder reader mounted on top.
-![](https://github.com/topherCantrell/topherBot/blob/master/art/cover.jpg)
+![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/cover.jpg)
 
 Before wiring.
-![](https://github.com/topherCantrell/topherBot/blob/master/art/bare.jpg)
+![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/bare.jpg)
 
 Schematic.
-![](https://github.com/topherCantrell/topherBot/blob/master/art/schematic.jpg)
+![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/schematic.jpg)
