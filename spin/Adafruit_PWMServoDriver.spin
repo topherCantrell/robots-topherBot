@@ -11,9 +11,7 @@ Motor PWM  IN2 IN1
 
 Stepper PWMA PWMB AIN1 AIN2 BIN1 BIN2
  S1     8     13   10   9    11   12
- S2     2     7    4    3    5     6
-
- 
+ S2     2     7    4    3    5     6  
  
 }}
 
