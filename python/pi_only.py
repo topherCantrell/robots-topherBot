@@ -28,11 +28,8 @@ def set_bool(channel, value):
         set_pwm(channel,0,4096)
         
 # This maps output channels to motors. There are 3 channels per motor.
-# The first channel is the motors PWM
-# The second and third channels are the boolean directions
-# Forward   : False, True
-# Backwards : True,  False
-# Release   : False, False
+# The first channel is the motor's PWM.
+# The second and third channels are the boolean directions.
 MOTORS = (
     (8,9,10),   # Front right: FALSE+TRUE = forward
     (13,12,11), # Back right:  TRUE+FALSE = forward
