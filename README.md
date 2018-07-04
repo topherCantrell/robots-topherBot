@@ -26,7 +26,19 @@ Line Follower
 Parallax quick start
   - https://www.parallax.com/sites/default/files/downloads/40000-Propeller-QuickStart-Schematic-Layout-RevB.pdf
 
-## Hardware
+## Hardware: Pi + MotorController
+
+You can run the motor controller right off the PiZero -- no propeller board needed. The wiring looks
+like this:
+
+![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/piOnly.jpg)
+
+Remember to make the solder jumper on the shield for 3.3V power input.
+
+The `python` folder has the `py_only.py` code. There are no frills in the code. I wanted to
+keep it as minimal as possible.
+
+## Hardware: Everything
 
 Adafruit motor controller shield mounted to base. Line follower array mounted to front.
 
@@ -43,3 +55,14 @@ Before wiring:
 Schematic:
 
 ![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/schematic.jpg)
+
+## Tests
+
+```
+i2cdetect -y 1
+```
+
+Shows 60 and 70. 70 is the "all call" (useful if the driver is running many LED boards).
+
+
+
