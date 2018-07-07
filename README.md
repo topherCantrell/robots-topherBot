@@ -59,13 +59,5 @@ Schematic:
 
 ![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/schematic.jpg)
 
-## Tests
-
-```
-i2cdetect -y 1
-```
-
-Shows 60 and 70. 70 is the "all call" (useful if the driver is running many LED boards).
-
 
 
