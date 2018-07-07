@@ -25,6 +25,9 @@ Line Follower
 
 Parallax quick start
   - https://www.parallax.com/sites/default/files/downloads/40000-Propeller-QuickStart-Schematic-Layout-RevB.pdf
+  
+5V/3.3V Converter (BOB)
+  - https://www.sparkfun.com/products/12009
 
 ## Hardware: Pi + MotorController
 
