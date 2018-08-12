@@ -30,41 +30,40 @@ pri read8(addr)
   i2c.ReadByte (pin_scl, i2caddr, addr | i2c#OneAddr) 
 pri write8(addr,value)
   i2c.WriteByte(pin_scl, i2caddr, addr | i2c#OneAddr, value)
-pri writeMulti(addr, buffer, count)
-  i2c.WritePage(pin_scl, i2cAddr, addr | i2c#OneAddr, buffer, count)
+'pri writeMulti(addr, buffer, count)
+'  i2c.WritePage(pin_scl, i2cAddr, addr | i2c#OneAddr, buffer, count)
     
 VAR
   byte pin_scl
   byte i2caddr
-  byte setPWMData[4]
+  'byte setPWMData[4]
   
-PUB init(addr)  
+PUB init(addr,scl)  
   i2caddr := addr
-
-PUB begin(scl) ' SDA = SCL + 1
-  pin_scl := scl   
+  pin_scl := scl ' SDA = SCL + 1 
   i2c.Initialize(scl)
-  reset
+  PauseMSec(1000)
+  write8(PCA9685_MODE1,$1)
+  PauseMSec(1000) 
 
-PUB reset
-  write8(PCA9685_MODE1, $00)
+PUB setBOOL(num, onOff)
+  if onOff==1
+    setPWM(num,4096,0)
+  else
+    setPWM(num,0,4096)
 
-PUB setPWMFreq(freq) | oldmode, newmode, prescale
-  ' TODO calculate prescale
-  oldmode := read8(PCA9685_MODE1)
-  newmode := (oldmode & $7F) | $10     ' sleep
-  write8(PCA9685_MODE1, newmode)       ' go to sleep
-  write8(PCA9685_PRESCALE, prescale)   ' set the prescaler
-  write8(PCA9685_MODE1, oldmode)
-  PauseMSec(5)
-  write8(PCA9685_MODE1, oldmode | $A1) ' set MOD1 register to turn on auto increment    
+PUB setPWM(num, on, off)
 
-PUB setPWM(num, on, off)   
-  setPWMData[0] := on
-  setPWMData[1] := on >> 8
-  setPWMData[2] := off
-  setPWMData[3] := off >> 8
-  writeMulti(LED0_ON_L+4*num, @setPWMData,4)  
+  write8(LED0_ON_L +4*num, on & $FF)
+  write8(LED0_ON_H +4*num, (on >> 8) & $FF)
+  write8(LED0_OFF_L+4*num, off & $FF)
+  write8(LED0_OFF_H+4*num, (off >> 8) & $FF)     
+
+  'setPWMData[0] := on
+  'setPWMData[1] := on >> 8
+  'setPWMData[2] := off
+  'setPWMData[3] := off >> 8
+  'writeMulti(LED0_ON_L+4*num, @setPWMData,4)  
 
 pri PauseMSec(Duration)
   waitcnt(((clkfreq / 1_000 * Duration - 3932) #> 381) + cnt)
