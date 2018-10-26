@@ -45,19 +45,19 @@ keep it as minimal as possible.
 
 Adafruit motor controller shield mounted to base. Line follower array mounted to front.
 
-![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/bottom.jpg)
+![](art/bottom.jpg)
 
 Encoder reader mounted on top:
 
-![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/cover.jpg)
+![](art/cover.jpg)
 
 Before wiring:
 
-![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/bare.jpg)
+![](art/bare.jpg)
 
 Schematic:
 
-![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/schematic.jpg)
+![](art/schematic.jpg)
 
 
 
