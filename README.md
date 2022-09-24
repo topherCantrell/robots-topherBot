@@ -1,63 +1,42 @@
-# Topher Bot
+# robots-compass-bot
 
-I added a 20-pixel neopixel strip to the front of the car for a K.I.T.T. (Knight Rider) effect.
+Experiments with a Compass Module
 
-TODO Next:
-  - I'm not sure I need two spin files for the single board. Simplify.
-  - Add some code in Main.spin to move the wheels.
+## Hardware
 
-## Links
+### Two wheel robot base ($13)
+https://www.amazon.com/dp/B01LXY7CM3
 
-MotorShield v2.3
-  - [http://adafruit.com/products/1438](http://adafruit.com/products/1438)
+![](art/chassis.jpg)
 
-Driver manual
-  - [https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf](https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf)
+### Robot control board ($15)
+https://www.adafruit.com/product/5129
 
-Shield schematics
-  - [https://learn.adafruit.com/assets/34460](https://learn.adafruit.com/assets/34460)
+![](art/pico.jpg)
 
-Wheel Encoder
-  - http://www.tinyosshop.com/index.php?route=product/product&filter_name=wheel%20encoder&filter_description=true&product_id=541
+### Grove connector wires ($3.50 for 5)
+https://www.seeedstudio.com/Grove-4-pin-Female-Jumper-to-Grove-4-pin-Conversion-Cable-5-PCs-per-PAck.html
 
-Line Follower
-  - https://github.com/sparkfun/Line_Follower_Array
+![](art/grove.jpg)
 
-Parallax quick start
-  - https://www.parallax.com/sites/default/files/downloads/40000-Propeller-QuickStart-Schematic-Layout-RevB.pdf
-  
-5V/3.3V Converter (BOB)
-  - https://www.sparkfun.com/products/12009
+### Compass module LSM303DLHC ($8)
+https://www.amazon.com/HiLetgo-LSM303DLHC-Compass-Accelerometer-Magnetometer/dp/B07X3GFKYD
 
-## Hardware: Pi + MotorController
+![](art/compass.jpg)
 
-You can run the motor controller right off the PiZero -- no propeller board needed. The wiring looks
-like this:
+## Other Hardware Options
 
-![](https://github.com/topherCantrell/robots-topherBot/blob/master/art/piOnly.jpg)
+### Raspberry Pi motor hat (can be used as generic I2C motor driver without a pi) ($18)
+https://www.amazon.com/dp/B098B1P8BS 
 
-Remember to make the solder jumper on the shield for 3.3V power input.
+![](art/hat.jpg)
 
-The `python` folder has the `py_only.py` code. There are no frills in the code. I wanted to
-keep it as minimal as possible.
+### ESP8266 ($16 for five)
+https://www.amazon.com/dp/B073CQVFLK 
 
-## Hardware: Everything
+![](art/esp8266.jpg)
 
-Adafruit motor controller shield mounted to base. Line follower array mounted to front.
+### Wheel encoder readers (for future projects) ($9 for the pair)
+https://www.amazon.com/dp/B00EERJDY4 
 
-![](art/bottom.jpg)
-
-Encoder reader mounted on top:
-
-![](art/cover.jpg)
-
-Before wiring:
-
-![](art/bare.jpg)
-
-Schematic:
-
-![](art/schematic.jpg)
-
-
-
+![](art/encoders.jpg)
