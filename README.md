@@ -95,3 +95,36 @@ ax.scatter3D(0,0,0,c='blue',s=100)
 
 plt.show()
 ```
+
+## Graphs
+
+### With and without motors
+Made with `plot_base.py`
+  - Blue: Without robot base (motors)
+  - Red: With robot base (motors)
+![](art/plot_base.jpg)
+
+### Magnet and iron mounted to robot
+Made with `plot_mounted.py`
+  - Black: No magnet and no iron
+  - Red: With magnet only
+  - Blue: With iron only
+![](art/plot_mounted.jpg)
+
+### Magnet and iron external to robot
+Made with `plot_externals.py`
+  - Black: No magnet and no iron
+  - Red: With magnet only
+  - Blue: With iron only
+![](art/plot_externals.jpg)
+
+### Running motors
+Made with `plot_motors.py`
+The Z values have been offset to separate the graphs.
+  - Orange: Both motors forward 100%
+  - Yellow: Both motors forward 50%
+  - Black: Both motors off
+  - Green: Both motors backward 50%
+  - Blue: Both motors backward 100%
+![](art/plot_motors.jpg)
+
