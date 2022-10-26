@@ -102,6 +102,7 @@ plt.show()
 Made with `plot_base.py`
   - Blue: Without robot base (motors)
   - Red: With robot base (motors)
+
 ![](art/plot_base.jpg)
 
 ### Magnet and iron mounted to robot
@@ -109,6 +110,7 @@ Made with `plot_mounted.py`
   - Black: No magnet and no iron
   - Red: With magnet only
   - Blue: With iron only
+
 ![](art/plot_mounted.jpg)
 
 ### Magnet and iron external to robot
@@ -116,6 +118,7 @@ Made with `plot_externals.py`
   - Black: No magnet and no iron
   - Red: With magnet only
   - Blue: With iron only
+
 ![](art/plot_externals.jpg)
 
 ### Running motors
@@ -126,5 +129,6 @@ The Z values have been offset to separate the graphs.
   - Black: Both motors off
   - Green: Both motors backward 50%
   - Blue: Both motors backward 100%
+  
 ![](art/plot_motors.jpg)
 
