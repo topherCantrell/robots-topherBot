@@ -136,8 +136,8 @@ The Z values have been offset to separate the graphs.
 
 Made with `calibrate.py`
   - Red: Original graph with mounted iron
-  - Green: Corrected for hard iron (offset to the origin)
-  - Black: Corrected for hard and soft iron
+  - Green: Corrected to origin
+  - Black: Corrected to origin and distortions
 
 ![](art/plot_calibrate.jpg)
 
