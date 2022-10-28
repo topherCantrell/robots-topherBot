@@ -100,8 +100,8 @@ plt.show()
 
 ### With and without motors
 Made with `plot_base.py`
-  - Blue: Without robot base (motors)
-  - Red: With robot base (motors)
+  - Blue: Without robot base (no motors)
+  - Red: With robot base (with motors)
 
 ![](art/plot_base.jpg)
 

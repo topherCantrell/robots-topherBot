@@ -28,4 +28,7 @@ ax.scatter3D(0,0,0,c='black',s=100)
 ax.scatter3D(x0,y0,z0,c='red',s=5)
 ax.scatter3D(x1,y1,z1,c='blue',s=5)
 
+plt.xlim([0,-70])
+plt.ylim([0,-70])
+
 plt.show()
