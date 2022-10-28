@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 #fname = 'data/J_Base_100_backward.json'
 #fname = 'data/K_Base_L100forward_R100backward.json'
 #fname = 'data/L_Base_no_power_north.json'
+fname = 'G:\data.txt'
 
 def load_data(fname):
 
@@ -63,11 +64,11 @@ ax.scatter3D(0,0,0,c='blue',s=100)
 # ax.scatter3D(x4,y4,z4,c='blue',s=5)
 # ax.scatter3D(x5,y5,z5,c='red',s=5)
 
-x0,y0,z0 = load_data('data/E_NoBase_50_iron.json')
+#x0,y0,z0 = load_data('data/E_NoBase_50_iron.json')
 #x0,y0,z0 = load_data('data/D_NoBase_50_magnet.json')
 #x0,y0,z0 = load_data('data/F_Base_no_power.json')
-ax.scatter3D(x0,y0,z0,c='green',s=5)
 
-
+x0,y0,z0 = load_data(fname)
+ax.scatter3D(x0,y0,z0,c='red',s=5)
 
 plt.show()

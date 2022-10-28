@@ -129,6 +129,15 @@ The Z values have been offset to separate the graphs.
   - Black: Both motors off
   - Green: Both motors backward 50%
   - Blue: Both motors backward 100%
-  
+
 ![](art/plot_motors.jpg)
+
+### Calibration
+
+Made with `calibrate.py`
+  - Red: Original graph with mounted iron
+  - Green: Corrected for hard iron (offset to the origin)
+  - Black: Corrected for hard and soft iron
+
+![](art/plot_calibrate.jpg)
 
