@@ -99,45 +99,59 @@ plt.show()
 ## Graphs
 
 ### With and without motors
-Made with `plot_base.py`
-  - Blue: Without robot base (no motors)
-  - Red: With robot base (with motors)
+Made with `plot_base.py`.
+
+The motors have magnets (and iron) in them. How do the motors affect the compass reading? Let's spin the
+compass/controller/batteries with and without the robot base attached.
 
 ![](art/plot_base.jpg)
 
+Interestingly, the motors bend the readings closer to ideal (zero slope in Z).
+
 ### Magnet and iron mounted to robot
-Made with `plot_mounted.py`
-  - Black: No magnet and no iron
-  - Red: With magnet only
-  - Blue: With iron only
+Made with `plot_mounted.py`.
+
+How does a magnet attached to the robot affect the compass readings? How does a chunk of iron attached to
+the robot affect the compass readings? Let's spin compass/controller/batteries with iron attached.
 
 ![](art/plot_mounted.jpg)
 
+With no magnet and no iron, the readings (black curve) are offset from center. This is caused by hard and soft
+iron built into the compass/controller/batteries. Mounting screws and header pins contribute to this offset.
+
+The magnet pushes the readings (red curve) away from the origin. The iron (blue curve) does too, but less noticeably.
+
 ### Magnet and iron external to robot
-Made with `plot_externals.py`
-  - Black: No magnet and no iron
-  - Red: With magnet only
-  - Blue: With iron only
+Made with `plot_externals.py`.
+
+How does a magnet placed near the robot (but not attached) affect the compass readings? How does a chunk of iron
+placed near the robot (but not attached) affect the compass readings?
 
 ![](art/plot_externals.jpg)
 
+The iron I used is a square tube stood upright along the Z axis. Notice how the blue curve is distorted along the Z axis.
+
+The magnet wreaks havoc with the readings (red curve).
+
 ### Running motors
-Made with `plot_motors.py`
-The Z values have been offset to separate the graphs.
-  - Orange: Both motors forward 100%
-  - Yellow: Both motors forward 50%
-  - Black: Both motors off
-  - Green: Both motors backward 50%
-  - Blue: Both motors backward 100%
+Made with `plot_motors.py`.
+
+When the motor is running, the current creates an electromagnet within each motor. Does this affect the compass readings?
+
+Let's run the motors at full and half power both backwards and forwards.
 
 ![](art/plot_motors.jpg)
 
-### Calibration
+All of the curves are nearly identical. The readings are affected the same whether the motors are running or not.
 
+### Calibration
 Made with `calibrate.py`
-  - Red: Original graph with mounted iron
-  - Green: Corrected to origin
-  - Black: Corrected to origin and distortions
+
+The Z slope is slight. We will ignore the compass readings on the Z axis. The (x, y) offsets are easy to calculate and adjust for.
+The distortion, or squashing, of the circle by soft-iron is harder to correct for. We'll use the "simple" correction factor because
+it is computationally cheap.
 
 ![](art/plot_calibrate.jpg)
 
+Notice that the final (black) curve is not a perfect circle. The "simple" correction algorithm leaves a little error, but it is close
+enough to perfect for our use.
