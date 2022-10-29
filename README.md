@@ -136,7 +136,7 @@ The magnet wreaks havoc with the readings (red curve).
 ### Running motors
 Made with `plot_motors.py`.
 
-When the motor is running, the current creates an electromagnet within each motor. Does this affect the compass readings?
+When a motor is running, the current creates an electromagnet within each motor. Does this affect the compass readings?
 
 Let's run the motors at full and half power both backwards and forwards.
 
