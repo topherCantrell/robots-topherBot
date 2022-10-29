@@ -27,7 +27,7 @@ xmax = max(x)
 xmin = min(x)
 xavg = (xmax - xmin)/2
 xoffset = xmax - xavg
-print('xmax/min:',xmax,xmin,xmax-xmin)
+#print('xmax/min:',xmax,xmin,xmax-xmin)
 
 ymax = max(y)
 ymin = min(y)
@@ -37,8 +37,9 @@ yoffset = ymax - yavg
 avgdelta = (xavg+yavg)/2
 xscale = avgdelta / xavg
 yscale = avgdelta / yavg
-print('ymax/min:',ymax,ymin,ymax-ymin)
+#print('ymax/min:',ymax,ymin,ymax-ymin)
 
+print(xoffset,yoffset)
 print(xscale,yscale)
 
 for i in range(len(x)):
@@ -51,25 +52,24 @@ for i in range(len(y)):
 
 for i in range(len(z)):
     z[i] = 0
-    z1[i] = 1
+    z1[i] = 0
 
-fig = plt.figure()
+fig = plt.figure(figsize=(8,8))
 
 """
-ax = plt.axes(projection='3d',xlabel='X',ylabel='Y',zlabel='Z',title='Corrected')
-ax.scatter3D(0,0,0,c='blue',s=100)
+ax = plt.axes(projection='3d',xlabel='X',ylabel='Y',zlabel='Z')
+ax.scatter3D(0,0,0,c='black',s=100) # Origin
+#
 ax.scatter3D(x,y,z,c='black',s=5)
-ax.scatter3D(x1,y1,z1,c='green',s=5)
+ax.scatter3D(x1,y1,z1,c='blue',s=5)
 ax.scatter3D(x2,y2,z2,c='red',s=5)
 """
 
-
-ax = plt.axes(xlabel='X',ylabel='Y',title='Corrected')
-ax.scatter(0,0,c='blue',s=100)
+ax = plt.axes(xlabel='X',ylabel='Y')
+ax.scatter(0,0,c='black',s=100)
 ax.scatter(x,y,c='black',s=5)
-ax.scatter(x1,y1,c='green',s=5)
+ax.scatter(x1,y1,c='blue',s=5)
 #ax.scatter(x2,y2,c='red',s=5)
-
 
 plt.xlim([-40,40])
 plt.ylim([-40,40])
