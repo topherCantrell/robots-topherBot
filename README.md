@@ -98,6 +98,9 @@ plt.show()
 
 ## Graphs
 
+These graphs were made by spinning the compass module in a circle about the gravity vector. The Z axis of
+the compass is parallel to gravity. The (x, y) plane is parallel to the Earth.
+
 ### With and without motors
 Made with `plot_base.py`.
 
@@ -142,7 +145,8 @@ Let's run the motors at full and half power both backwards and forwards.
 
 ![](art/plot_motors.jpg)
 
-All of the curves are nearly identical. The readings are affected the same whether the motors are running or not.
+The Z-axises of these curves have been tweaked to separate the curves visually. Just looking at the (x, y) values we find that
+all of the curves are nearly identical. The readings are affected the same whether the motors are running or not.
 
 ### Calibration
 Made with `calibrate.py`
