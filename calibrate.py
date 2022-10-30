@@ -18,7 +18,7 @@ def load_data(fname):
     return xdata,ydata,zdata
 
 fname = 'data/M_Base_mounted_iron.json'
-#x,y,z = load_data('data/F_Base_no_power.json')
+#fname = 'data/F_Base_no_power.json'
 x,y,z = load_data(fname)
 x1,y1,z1 = load_data(fname)
 x2,y2,z2 = load_data(fname)

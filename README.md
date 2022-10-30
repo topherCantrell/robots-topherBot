@@ -163,3 +163,16 @@ it is computationally cheap.
 
 Notice that the final (black) curve is not a perfect circle. The "simple" correction algorithm leaves a little error, but it is close
 enough to perfect for our use.
+
+# Heading
+
+I tried to mount the compass so that forward for the robot is right down the Y axis. Actually, negative on the Y axis because of how 
+the circuit board is laid out.
+
+I pointed the robot to head straight north and took samples. I would expect the X,Y-to-heading math to result in 180 degrees. Instead
+my calculations say 160, which agrees with the plotted data:
+
+![](art/plot_north.jpg)
+
+That's close. Is my error in mounting the compass or lining the robot up pointing north. I'll test driving to 160 and to 180 and see
+which matches the actual compass better.
