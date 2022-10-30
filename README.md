@@ -2,6 +2,10 @@
 
 Experiments with a Compass Module
 
+![](art/CompassBot5.jpg)
+
+![](art/CompassBot3.jpg)
+
 ## Hardware
 
 ### Two wheel robot base ($13)
