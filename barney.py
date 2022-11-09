@@ -1,8 +1,8 @@
 # this file becomes "code.py"
 
 # Press GPIO21 at startup to make writeable
-# Press GPIO20 to start recording (2 second delay before starting)
-# Records 30 seconds of data to "data.txt"
+# Press GPIO20 to start moving 
+# (There is a 2 second delay before starting)
 
 import board
 import busio

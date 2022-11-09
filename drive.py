@@ -53,11 +53,11 @@ def correct(x,y):
 def get_current_heading():
     # Clockwise: 0=North, 90=east, 180=south, 270=west
     mag_x, mag_y, _ = sensor.magnetic            # Read the sensor
-    mag_x = (mag_x-OFFSET_X) * SCALE_X           # Apply the ...
+    mag_x = (mag_x-OFFSET_X) * SCALE_X           # Apply the iron ...
     mag_y = (mag_y-OFFSET_Y) * SCALE_Y           # ... correction
     ret = math.atan2(mag_x, mag_y)/math.pi*180   # Get heading angle
     ret = 360 - ret                              # Reverse so 90=EAST, 270=WEST
-    ret = (ret+FORWARD) % 360                    # Offset to robot forward
+    ret = (ret+FORWARD) % 360                    # Offset to forward (180)
     return ret
 
 def get_heading_difference(cur,head):
@@ -67,6 +67,7 @@ def get_heading_difference(cur,head):
        are distance clockwise. Negative values are distance 
        counter-clockwise.
     """
+    head = head % 360
     distance = head-cur
     if distance<-180:
         distance+=360
@@ -75,16 +76,14 @@ def get_heading_difference(cur,head):
     return distance
 
 
-def turn_to(heading):
-    TURN_SPEED = 0.25
-    heading = (heading % 360)    # Just in case
+def turn_to(speed,heading):
     cur = get_current_heading()  # Current heading
     distance = get_heading_difference(cur,heading) # Current distance to target heading    
     if distance<0: # shortest distance is CCW
         #print('CCW INITIAL DISTANCE,CUR',distance,cur)
         # spinning CCW
-        motor1.throttle = -TURN_SPEED
-        motor2.throttle = TURN_SPEED
+        motor1.throttle = -speed
+        motor2.throttle = speed
         while distance<0: # Until we first pass the target
             cur = get_current_heading()
             distance = get_heading_difference(cur,heading)    
@@ -92,8 +91,8 @@ def turn_to(heading):
     else: # shortest distance is CW
         #print('CW INITIAL DISTANCE,CUR',distance,cur)
         # spinning CW
-        motor1.throttle = TURN_SPEED
-        motor2.throttle = -TURN_SPEED
+        motor1.throttle = speed
+        motor2.throttle = -speed
         while distance>0: # Until we first pass the target
             cur = get_current_heading()
             distance = get_heading_difference(cur,heading)       
@@ -104,23 +103,23 @@ def turn_to(heading):
 
 def drive_to(heading,secs):
     log(f'Driving to {heading} for {secs} seconds')
-    FULL = .70
-    heading = (heading % 360)    # Just in case    
-    hunds = secs*4  # 4 times a seconds
+    FULL = .75
+    heading = (heading % 360)  # Just in case    
+    hunds = secs*10  # 10 times a seconds
     while hunds>0:
         cur = get_current_heading()  # Current heading
         diff = get_heading_difference(cur,heading)        
         cor = diff/180 * 0.50 # 0:180 becomes 0:50%
         cor = cor * FULL  # 0 to 25% reduction        
-        if cor>0:  # Turn CCW
+        if cor>0:  # Turn CCW (right motor slower)
             log(f'>CCW cur={cur} diff={diff} cor={cor} left={FULL-abs(cor)} right={FULL}')                     
             motor2.throttle = FULL - abs(cor)  # Reduced
-            motor1.throttle = FULL  # Right motor full
-        else:  # Turn CW
+            motor1.throttle = FULL  # Left motor full
+        else:  # Turn CW (left motor slower)
             log(f'>CW cur={cur} diff={diff} cor={cor} left={FULL} right={FULL-abs(cor)}')
-            motor2.throttle = FULL  # Left motor full
+            motor2.throttle = FULL  # Right motor full
             motor1.throttle = FULL - abs(cor)  # Reduced                   
-        time.sleep(0.25)  # 4 times a second
+        time.sleep(0.10)  # 10 times a second
         hunds -= 1
     motor1.throttle = None
     motor2.throttle = None
@@ -129,19 +128,19 @@ def drive_to(heading,secs):
 def drive_cw_square(ofs,leg_time):    
 
     log('Going forward')
-    turn_to(heading=ofs+0)
+    turn_to(speed=0.25,heading=ofs+0)
     drive_to(heading=ofs+0, secs=leg_time)
 
     log('Going right')
-    turn_to(heading=ofs+90)
+    turn_to(speed=0.25,heading=ofs+90)
     drive_to(heading=ofs+90, secs=leg_time)
 
     log('Going backward')
-    turn_to(heading=ofs+180)
+    turn_to(speed=0.25,heading=ofs+180)
     drive_to(heading=ofs+180, secs=leg_time)
 
     log('Going left')
-    turn_to(heading=ofs+270)
+    turn_to(speed=0.25,heading=ofs+270)
     drive_to(heading=ofs+270, secs=leg_time)
 
 LOGS = []
@@ -158,15 +157,3 @@ pixels[0] = (80,0,0) # Red LED ... we are moving
 drive_cw_square(ofs=32,leg_time=3)
 write_log()
 pixels[0] = (0,80,0) # Green LED ... we are done
-
-#while True:
-#    print(get_current_heading())
-#    time.sleep(0.5)
-
-# for i in range(5):
-#     motor1.throttle=0.5
-#     motor2.throttle=0.5
-#     time.sleep(2)
-#     motor1.throttle=0
-#     motor2.throttle=0
-#     time.sleep(2)

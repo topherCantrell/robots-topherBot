@@ -47,35 +47,6 @@ Hex 1E: 00011110 (Compass)
 
 https://github.com/adafruit/Adafruit_CircuitPython_LSM303DLH_Mag
 
-## Other Hardware Options
-
-### More grove connector wires ($3.50 for 5)
-https://www.seeedstudio.com/Grove-4-pin-Female-Jumper-to-Grove-4-pin-Conversion-Cable-5-PCs-per-PAck.html
-
-![](art/grove.jpg)
-
-### Raspberry Pi motor hat (can be used as generic I2C motor driver without a pi) ($18)
-https://www.amazon.com/dp/B098B1P8BS 
-
-The power switch: connects the VIN terminals to the board. The "OFF" position connects VIN, the "ON" position does not. Seems backwards. Might be related to getting power from the pi instead.
-
-The edge of the board has header holes for:
-  * 5V connects to the board's 5V regulator output to the raspberry pi's 5V pin
-  * 3.3V does NOT connect to the raspberry pi's 3V pin since the Pi drives this
-  * GND connects to common ground on board and pi
-  * SCL and SDA connect to PI pins 
-
-With the ESP8266. D1 wired to SCL, D2 wired to SDA. An I2C scan reboots the ESP. Other devices scan correctly from the ESP. Very odd. 
-
-Trying from the Pi: i2cdetect shows addresses 40 and 70. Seems to work from the pi.
-
-![](art/hat.jpg)
-
-### ESP8266 ($16 for five)
-https://www.amazon.com/dp/B073CQVFLK 
-
-![](art/esp8266.jpg)
-
 ### Wheel encoder readers (for future projects) ($9 for the pair)
 https://www.amazon.com/dp/B00EERJDY4 
 
@@ -165,6 +136,8 @@ Notice that the final (black) curve is not a perfect circle. The "simple" correc
 enough to perfect for our use.
 
 # Heading
+
+TODO - REPEAT THIS EXPERIMENT. Use the line of LEDs as an indicator of facing north and compare to the compass.
 
 I tried to mount the compass so that forward for the robot is right down the Y axis. Actually, negative on the Y axis because of how 
 the circuit board is laid out.
